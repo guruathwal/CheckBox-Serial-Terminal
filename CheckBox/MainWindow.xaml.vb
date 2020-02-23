@@ -28,6 +28,7 @@ Class MainWindow
     'Strings
     Dim string_not_connected = "Serial Port is Not connected."
     Dim string_data_notsent = "Unable to send data to Serial Port."
+
     Dim AplicationFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\CheckBox\"
     Public applink As String = "https://github.com/guruathwal/CheckBox-Serial-Terminal"
     Public versionlink As String = "https://raw.githubusercontent.com/guruathwal/CheckBox-Serial-Terminal/master/CheckBox/Release-version/version.txt"
@@ -358,6 +359,7 @@ Class MainWindow
 
         finishloading = True
         UpdateMe()
+
     End Sub
 
     'update serial port settings
@@ -417,6 +419,7 @@ Class MainWindow
                     check_update()
                     My.Settings.updateDATE = Date.Now
                     My.Settings.updateCheck = True
+                    My.Settings.Save()
                 End If
 
             End If
@@ -431,11 +434,12 @@ Class MainWindow
 
                 Dim instance As New WebClient
                 'download update file
-                instance.DownloadFile(versionlink, AplicationFolder & "version.txt")
+                Dim fname As String = "checkbox_version.txt"
+                instance.DownloadFile(versionlink, Path.GetTempPath & fname)
 
                 'get update version
                 Dim ver As String = ""
-                Dim fs As New FileStream(AplicationFolder & "version.txt", FileMode.Open, FileAccess.Read)
+                Dim fs As New FileStream(Path.GetTempPath & fname, FileMode.Open, FileAccess.Read)
                 Dim d As New StreamReader(fs)
                 d.BaseStream.Seek(0, SeekOrigin.Begin)
 
@@ -449,8 +453,8 @@ Class MainWindow
                 'check version
                 Dim vno_num = Replace(vno, ".", "")  'New Version
 
-                Dim currentVersion = My.Application.Info.Version.Major & My.Application.Info.Version.Minor & My.Application.Info.Version.Revision  'Build current Version to variable
-
+                Dim currentVersion = My.Application.Info.Version.Major & My.Application.Info.Version.Minor & My.Application.Info.Version.Build & My.Application.Info.Version.MinorRevision  'Build current Version to variable
+                MsgBox(currentVersion)
                 If Val(currentVersion) >= Val(vno_num) Then
                     MsgBox("You already have the latest version.")
                 Else
@@ -460,10 +464,11 @@ Class MainWindow
                 End If
                 My.Settings.updateDATE = Date.Now
                 My.Settings.updateCheck = True
-
+                My.Settings.Save()
+                fs.Close()
             End If
         Catch ex As Exception
-
+            'MsgBox(ex.Message)
         End Try
     End Sub
 #End Region
