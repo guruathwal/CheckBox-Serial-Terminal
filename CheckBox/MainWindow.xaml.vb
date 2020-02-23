@@ -454,7 +454,7 @@ Class MainWindow
                 Dim vno_num = Replace(vno, ".", "")  'New Version
 
                 Dim currentVersion = My.Application.Info.Version.Major & My.Application.Info.Version.Minor & My.Application.Info.Version.Build & My.Application.Info.Version.MinorRevision  'Build current Version to variable
-                MsgBox(currentVersion)
+                'MsgBox(currentVersion)
                 If Val(currentVersion) >= Val(vno_num) Then
                     MsgBox("You already have the latest version.")
                 Else
