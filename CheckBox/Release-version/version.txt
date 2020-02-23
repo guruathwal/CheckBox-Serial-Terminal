@@ -1,1 +1,1 @@
-0.2.0.0|https://github.com/guruathwal/CheckBox-Serial-Terminal
+0.0.2.0|https://github.com/guruathwal/CheckBox-Serial-Terminal
