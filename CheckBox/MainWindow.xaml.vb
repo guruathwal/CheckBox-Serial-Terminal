@@ -30,7 +30,7 @@ Class MainWindow
     Dim string_data_notsent = "Unable to send data to Serial Port."
     Dim AplicationFolder As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\CheckBox\"
     Public applink As String = "https://github.com/guruathwal/CheckBox-Serial-Terminal"
-    Public versionlink As String = "https://github.com/guruathwal/CheckBox-Serial-Terminal/CheckBox/Release-version/version.txt"
+    Public versionlink As String = "https://raw.githubusercontent.com/guruathwal/CheckBox-Serial-Terminal/master/CheckBox/Release-version/version.txt"
 
     Private Sub setToolTips()
         combo_ports.ToolTip = "Select a Serial Port"
