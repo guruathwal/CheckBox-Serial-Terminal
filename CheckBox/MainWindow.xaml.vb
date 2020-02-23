@@ -433,6 +433,7 @@ Class MainWindow
             If My.Computer.Network.Ping("8.8.8.8") Then
 
                 Dim instance As New WebClient
+
                 'download update file
                 Dim fname As String = "checkbox_version.txt"
                 instance.DownloadFile(versionlink, Path.GetTempPath & fname)
@@ -466,6 +467,7 @@ Class MainWindow
                 My.Settings.updateCheck = True
                 My.Settings.Save()
                 fs.Close()
+                instance.Dispose()
             End If
         Catch ex As Exception
             'MsgBox(ex.Message)
