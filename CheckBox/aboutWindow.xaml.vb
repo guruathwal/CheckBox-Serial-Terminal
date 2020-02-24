@@ -26,4 +26,8 @@ Public Class aboutWindow
     Private Sub check_update_Click(sender As Object, e As RoutedEventArgs) Handles check_update.Click
         My.Windows.MainWindow.check_update(True)
     End Sub
+
+    Private Sub label_desc_MouseUp(sender As Object, e As MouseButtonEventArgs) Handles label_desc.MouseUp
+        Process.Start("http://creativecommons.org/licenses/by-sa/4.0/")
+    End Sub
 End Class
