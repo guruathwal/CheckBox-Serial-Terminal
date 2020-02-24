@@ -13,7 +13,7 @@ Imports System.Windows
 
 <Assembly: AssemblyTitle("Check Box - Beta")>
 <Assembly: AssemblyDescription("A simple Serial/UART terminal")>
-<Assembly: AssemblyCompany("guruathwal")>
+<Assembly: AssemblyCompany("Gurmeet Athwal")>
 <Assembly: AssemblyProduct("Check Box")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
 <Assembly: AssemblyTrademark("")>

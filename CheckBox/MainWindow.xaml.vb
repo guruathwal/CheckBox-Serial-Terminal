@@ -428,7 +428,7 @@ Class MainWindow
 
     End Sub
 
-    Public Sub check_update()
+    Public Sub check_update(Optional showprompt As Boolean = False)
         Try
             If My.Computer.Network.Ping("8.8.8.8") Then
 
@@ -457,7 +457,9 @@ Class MainWindow
                 Dim currentVersion = My.Application.Info.Version.Major & My.Application.Info.Version.Minor & My.Application.Info.Version.Build & My.Application.Info.Version.MinorRevision  'Build current Version to variable
                 'MsgBox(currentVersion)
                 If Val(currentVersion) >= Val(vno_num) Then
-                    MsgBox("You already have the latest version.")
+                    If showprompt Then
+                        MsgBox("You already have the latest version.")
+                    End If
                 Else
                     If MsgBox("A New Version (" & vno & ") is Available. Do you want to Download it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                         Process.Start(vurl)
