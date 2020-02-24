@@ -250,7 +250,6 @@ Class MainWindow
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         setToolTips()
         RefreshPorts()
-        'SPSetup()
         With Combospeed1.Items
             .Add(300)
             .Add(1200)
@@ -333,9 +332,11 @@ Class MainWindow
 
         'reset settings on first run
         If My.Settings.firsttime Then
+            Dim dr As Window = New aboutWindow
+            dr.ShowDialog()
             Reset_settings()
         End If
-        Reset_settings()
+
         'load setting
         Load_settings()
 
@@ -358,6 +359,7 @@ Class MainWindow
         AddHandler check_autoScroll.Checked, AddressOf check_settings_Checked
 
         finishloading = True
+
         UpdateMe()
 
     End Sub
