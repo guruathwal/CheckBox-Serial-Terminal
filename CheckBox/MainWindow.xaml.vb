@@ -472,9 +472,13 @@ Class MainWindow
                 My.Settings.Save()
                 fs.Close()
                 instance.Dispose()
+            Else
+                MsgBox("No internet connection detected. make sure you are connected to internet.", MsgBoxStyle.Exclamation, "Unable to Check for Updates")
             End If
         Catch ex As Exception
-            'MsgBox(ex.Message)
+            If showprompt Then
+                MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Unable to Check for Updates")
+            End If
         End Try
     End Sub
 #End Region
