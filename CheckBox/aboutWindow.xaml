@@ -11,7 +11,7 @@
         <Label x:Name="label_app_name" Content="Label" Margin="10,10,74,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="label_app_version" Content="Label" Margin="10,47,74,0" VerticalAlignment="Top"/>
         <Label x:Name="label_app_link" Content="Label" Margin="55,0,10,32" VerticalContentAlignment="Center" Cursor="Hand" Foreground="#FFFF102A" Height="39" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="label_desc" Height="133" Margin="10,83,10,0" VerticalAlignment="Top" FontStyle="Italic" Padding="5,0" TextAlignment="Center" TextWrapping="WrapWithOverflow">
+        <TextBlock x:Name="label_desc" Height="133" Margin="10,83,10,0" VerticalAlignment="Top" FontStyle="Italic" Padding="5,0" TextWrapping="WrapWithOverflow">
 
         </TextBlock>
         <Image x:Name="image_github"  HorizontalAlignment="Left" Height="40" Margin="10,0,0,31" VerticalAlignment="Bottom" Width="40" Cursor="Hand" Source="Resources/GitHub-Mark.png"/>
