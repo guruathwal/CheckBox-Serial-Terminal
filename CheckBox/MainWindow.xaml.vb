@@ -115,7 +115,6 @@ Class MainWindow
         End If
     End Sub
 
-
 #Region "settings"
     ''' <summary>
     ''' reset settings to default
@@ -493,13 +492,14 @@ Class MainWindow
 
         If Serial_Port1.IsOpen Then
             Serial_Port1.Write(buildString)
-            If last_text_from_port Then
+            If last_text_from_port = True Then
                 If Not txt_terminal.Text.EndsWith(vbLf) Then
                     txt_terminal.AppendText(vbLf)
                 End If
-                last_text_from_port = False
 
             End If
+
+            last_text_from_port = False
             txt_terminal.AppendText("▲ " & buildString())
                 clear_lines()
                 txt_send.Clear()
@@ -545,10 +545,11 @@ Class MainWindow
             If Not txt_terminal.Text.EndsWith(vbLf) Then
                 txt_terminal.AppendText(vbLf)
             End If
-            last_text_from_port = True
+            txt_terminal.AppendText("▼ ")
         End If
-        txt_terminal.AppendText("▼ ")
+
         txt_terminal.AppendText(myString)
+        last_text_from_port = True
         clear_lines()
 
     End Sub
