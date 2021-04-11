@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CheckBox"
         mc:Ignorable="d"
-        Title="Check Box - Serial Terminal" Height="422.8" Width="550" MinHeight="330" Loaded="Window_Loaded" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" MinWidth="550" Background="White" Icon="Resources/checkbox terminal.ico">
+        Title="Check Box - Serial Terminal" Height="399.945" Width="506" MinHeight="330" Loaded="Window_Loaded" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" MinWidth="550" Background="White" Icon="Resources/checkbox terminal.ico">
     <Grid Margin="0">
 
         <TabControl Margin="0,20,0,14.8" Padding="0" HorizontalContentAlignment="Left">
             <TabItem x:Name="tab_terminal" Header="Terminal" FlowDirection="LeftToRight">
                 <Grid Margin="0">
-                    <TextBox x:Name="txt_terminal" Margin="5,2,5.4,37.8" AcceptsReturn="True" MaxLines="10000" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" />
+                    <TextBox x:Name="txt_terminal" Margin="5,2,5.4,37.8" AcceptsReturn="True" MaxLines="10000" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" TextWrapping="Wrap" />
                     <TextBox x:Name="txt_send" Height="30" VerticalAlignment="Bottom" Margin="5,0,195.4,2.8" BorderBrush="#FF707070" Padding="0,-3" VerticalContentAlignment="Center">
                         <TextBox.ContextMenu>
                             <ContextMenu>
@@ -24,6 +24,20 @@
                     <CheckBox x:Name="check_lf" Content="LF" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,140.2,3.2" Height="30" VerticalContentAlignment="Center" Width="50"/>
                     <CheckBox x:Name="check_cr" Content="CR" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,84.2,3.2" Height="30" VerticalContentAlignment="Center" Width="49"/>
                     <Button x:Name="btn_send" Content="Send" Margin="0,0,5,3.2" HorizontalAlignment="Right" Width="76" Height="30" VerticalAlignment="Bottom"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab_presets" Header="Presets">
+                <Grid Margin="0,0,0.4,-0.4">
+                    <ListBox x:Name="listbox_presets" Margin="10,10,0,40.6" ItemsSource="{Binding presetdisplayList, ElementName=w1}" HorizontalAlignment="Left" Width="155"/>
+                    <Button x:Name="btn_presetEdit" Content="Save" Margin="0,0,90,10.6" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Right" Width="75" />
+                    <Button x:Name="btn_presetRemove" Content="Remove" Margin="90,0,0,10.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Height="25" />
+                    <Button x:Name="btn_presetAdd" Content="Add New" Margin="10,0,0,10.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Height="25"/>
+                    <Button x:Name="btn_sendNow" Content="Send Now" Margin="0,0,10,11.6" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Right" Width="75" />
+                    <Label Content="Keyword" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="62" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txt_keyword" Height="23" Margin="237,13,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" MaxLines="1"/>
+                    <TextBox x:Name="txt_message" Margin="237,41,10,40.6" TextWrapping="Wrap" Text="" MaxLength="4048" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                    <Label Content="Message" HorizontalAlignment="Left" Margin="170,41,0,0" VerticalAlignment="Top" Width="62" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="checkbox_defaultreply" Content="Set as default reply" Margin="237,0,0,10.6" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="135"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tab_setting" Header="Settings">
@@ -67,7 +81,7 @@
         </TabControl>
         <WrapPanel VerticalAlignment="Top" Height="40" HorizontalAlignment="Right" Margin="0,0,5,0">
             <Label Content="Port" Margin="5,0,0,0" Height="28" VerticalContentAlignment="Center" Padding="0" Width="31" HorizontalContentAlignment="Right"/>
-            <ComboBox x:Name="combo_ports" HorizontalAlignment="Left" Width="79.8" Margin="5,0,0,0" Height="25" VerticalAlignment="Center" IsReadOnly="True" IsEditable="False" UseLayoutRounding="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="24" FontSize="12"/>
+            <ComboBox x:Name="combo_ports" HorizontalAlignment="Left" Width="63.8" Margin="5,0,0,0" Height="25" VerticalAlignment="Center" IsReadOnly="True" IsEditable="False" UseLayoutRounding="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="24" FontSize="12"/>
             <Button x:Name="btn_refreshport" FontFamily="Segoe MDL2 Assets" Content="&#xE117;" Margin="5,0,0,0" BorderThickness="0" HorizontalContentAlignment="Center" Padding="0" Width="36" Height="28" MinWidth="24" MinHeight="24" FontSize="18" VerticalContentAlignment="Center" Background="White" Foreground="#FF3F3F3F"/>
             <Button x:Name="btn_connect"  FontFamily="Segoe MDL2 Assets" Content="&#xE724;" Width="36" Margin="5,0,0,0" Height="28" MinWidth="24" MinHeight="24" Padding="0" FontSize="18" FontWeight="Normal" BorderThickness="0" Background="White" Foreground="#FF3F3F3F"/>
             <Separator Margin="10,9,5,8" Width="1" Height="30" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Background="#FF767676" Foreground="#DD000000" BorderBrush="Black" Padding="0"/>

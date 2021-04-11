@@ -267,6 +267,18 @@ Partial Friend NotInheritable Class MySettings
             Me("updateCheck") = value
         End Set
     End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("-1")>  _
+    Public Property defaultReply() As Integer
+        Get
+            Return CType(Me("defaultReply"),Integer)
+        End Get
+        Set
+            Me("defaultReply") = value
+        End Set
+    End Property
 End Class
 
 Namespace My
