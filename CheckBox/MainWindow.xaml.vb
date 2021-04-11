@@ -485,6 +485,7 @@ Class MainWindow
             txt_maxlines.Text = maxLines
         End If
     End Sub
+
     'reset settings
     Private Sub btn_reset_Click(sender As Object, e As RoutedEventArgs) Handles btn_reset.Click
         resetting = True
