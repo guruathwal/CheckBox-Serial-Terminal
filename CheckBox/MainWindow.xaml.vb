@@ -465,6 +465,26 @@ Class MainWindow
         Save_settings()
     End Sub
 
+    ''' <summary>
+    ''' allow only number
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub txt_maxlines_PreviewTextInput(sender As Object, e As TextCompositionEventArgs) Handles txt_maxlines.PreviewTextInput
+        If Not Char.IsDigit(CChar(e.Text)) Then e.Handled = True
+    End Sub
+
+    Private Sub txt_maxlines_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txt_maxlines.TextChanged
+        If IsNumeric(txt_maxlines.Text) Then
+            My.Settings.maxLines = txt_maxlines.Text
+        End If
+    End Sub
+
+    Private Sub txt_maxlines_LostFocus(sender As Object, e As RoutedEventArgs) Handles txt_maxlines.LostFocus
+        If IsNumeric(txt_maxlines.Text) = False Then
+            txt_maxlines.Text = maxLines
+        End If
+    End Sub
     'reset settings
     Private Sub btn_reset_Click(sender As Object, e As RoutedEventArgs) Handles btn_reset.Click
         resetting = True
@@ -568,7 +588,7 @@ Class MainWindow
                 End If
 
                 last_text_from_port = False
-                txt_terminal.AppendText("▲ " & buildString(str))
+                txt_terminal.AppendText("» " & buildString(str))
                 clear_lines()
             End If
         Else
@@ -657,7 +677,7 @@ Class MainWindow
             If Not txt_terminal.Text.EndsWith(vbLf) Then
                 txt_terminal.AppendText(vbLf)
             End If
-            txt_terminal.AppendText("▼ ")
+            'txt_terminal.AppendText("<<")
         End If
 
         txt_terminal.AppendText(myString)
@@ -885,26 +905,18 @@ Class MainWindow
         txt_send.Copy()
     End Sub
 
-    ''' <summary>
-    ''' allow only number
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub txt_maxlines_PreviewTextInput(sender As Object, e As TextCompositionEventArgs) Handles txt_maxlines.PreviewTextInput
-        If Not Char.IsDigit(CChar(e.Text)) Then e.Handled = True
+    Private Sub txt_terminal_clear_Click(sender As Object, e As RoutedEventArgs) Handles txt_terminal_clear.Click
+        txt_terminal.Clear()
     End Sub
 
-    Private Sub txt_maxlines_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txt_maxlines.TextChanged
-        If IsNumeric(txt_maxlines.Text) Then
-            My.Settings.maxLines = txt_maxlines.Text
-        End If
+    Private Sub txt_terminal_copy_Click(sender As Object, e As RoutedEventArgs) Handles txt_terminal_copy.Click
+        txt_terminal.Copy()
     End Sub
 
-    Private Sub txt_maxlines_LostFocus(sender As Object, e As RoutedEventArgs) Handles txt_maxlines.LostFocus
-        If IsNumeric(txt_maxlines.Text) = False Then
-            txt_maxlines.Text = maxLines
-        End If
+    Private Sub txt_terminal_copyAll_Click(sender As Object, e As RoutedEventArgs) Handles txt_terminal_copyAll.Click
+        Clipboard.SetText(txt_terminal.Text)
     End Sub
+
 
 #End Region
 
