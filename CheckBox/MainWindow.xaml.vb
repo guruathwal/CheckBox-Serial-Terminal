@@ -678,7 +678,7 @@ Class MainWindow
             If Not txt_terminal.Text.EndsWith(vbLf) Then
                 txt_terminal.AppendText(vbLf)
             End If
-            'txt_terminal.AppendText("<<")
+            txt_terminal.AppendText("« ")
         End If
 
         txt_terminal.AppendText(myString)
