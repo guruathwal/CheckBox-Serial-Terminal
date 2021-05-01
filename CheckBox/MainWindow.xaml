@@ -37,10 +37,10 @@
             <TabItem x:Name="tab_presets" Header="Presets">
                 <Grid Margin="0,0,0.4,-0.4">
                     <ListBox x:Name="listbox_presets" Margin="10,10,0,40.6" ItemsSource="{Binding presetdisplayList, ElementName=w1}" HorizontalAlignment="Left" Width="155"/>
-                    <Button x:Name="btn_presetEdit" Content="Save" Margin="0,0,90,10.6" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Right" Width="75" />
-                    <Button x:Name="btn_presetRemove" Content="Remove" Margin="90,0,0,10.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Height="25" />
                     <Button x:Name="btn_presetAdd" Content="Add New" Margin="10,0,0,10.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Height="25"/>
-                    <Button x:Name="btn_sendNow" Content="Send Now" Margin="0,0,10,11.6" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Right" Width="75" />
+                    <Button x:Name="btn_presetRemove" Content="Remove" Margin="90,0,0,10.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Height="25" />
+                    <Button x:Name="btn_presetEdit" Content="Save" Margin="0,0,90,10.6" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Right" Width="75" />
+                    <Button x:Name="btn_sendNow" Content="Send Now" Margin="0,0,10,10.6" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Right" Width="75" />
                     <Label Content="Keyword" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="62" HorizontalContentAlignment="Right"/>
                     <TextBox x:Name="txt_keyword" Height="23" Margin="237,13,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" MaxLines="1"/>
                     <TextBox x:Name="txt_message" Margin="237,41,10,40.6" TextWrapping="Wrap" Text="" MaxLength="4048" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
