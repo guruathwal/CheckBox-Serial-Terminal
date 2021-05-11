@@ -805,8 +805,8 @@ Class MainWindow
 
             If checkbox_defaultreply.IsChecked = True Then
                 My.Settings.defaultReply = i
-                My.Settings.Save()
             End If
+            My.Settings.Save()
             listbox_presets.SelectedIndex = i
         End If
 
